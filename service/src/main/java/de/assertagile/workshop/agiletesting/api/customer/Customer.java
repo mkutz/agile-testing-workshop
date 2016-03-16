@@ -1,4 +1,4 @@
-package de.assertagile.workshop.agiletesting;
+package de.assertagile.workshop.agiletesting.api.customer;
 
 public class Customer {
 

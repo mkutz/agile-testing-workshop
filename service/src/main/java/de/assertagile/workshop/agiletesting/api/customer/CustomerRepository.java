@@ -1,4 +1,4 @@
-package de.assertagile.workshop.agiletesting;
+package de.assertagile.workshop.agiletesting.api.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

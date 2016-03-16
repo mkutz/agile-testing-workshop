@@ -1,7 +1,7 @@
 package de.assertagile.workshop.agiletesting.test.service
 
 import de.assertagile.workshop.agiletesting.Application
-import de.assertagile.workshop.agiletesting.CustomerRvo
+import de.assertagile.workshop.agiletesting.api.customer.CustomerRvo
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.SpringApplicationContextLoader
 import org.springframework.boot.test.WebIntegrationTest
@@ -24,12 +24,26 @@ class CustomerServiceSpec extends Specification {
 
     def "GETing all customers should return an empty list"() {
         when:
-        ResponseEntity<List<CustomerRvo>> response = rest.getForEntity("${serviceUrl}/customer/", List)
+        ResponseEntity<List<CustomerRvo>> response = rest.getForEntity("${serviceUrl}/api/customer/", List)
 
         then:
         response.statusCode == HttpStatus.OK
 
         and:
         response.body == []
+    }
+
+    def "after POSTing a customer, getting its location should work"() {
+        given:
+        CustomerRvo customerRvo = new CustomerRvo("Michael", "Kutz", "mail@assertagile.de")
+
+        when:
+        ResponseEntity<Void> response = rest.postForEntity("${serviceUrl}/api/customer/", customerRvo, Void)
+
+        then:
+        response.statusCode == HttpStatus.CREATED
+
+        and:
+        rest.getForEntity(response.getHeaders().getLocation(), CustomerRvo).body == customerRvo
     }
 }
