@@ -15,7 +15,7 @@ import spock.lang.Specification
 @ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader)
 @WebIntegrationTest(randomPort = true)
 @DirtiesContext
-class GetCustomerServiceSpec extends Specification {
+class CustomerServiceSpec extends Specification {
 
     @Value('http://localhost:${local.server.port}')
     String serviceUrl
