@@ -78,7 +78,7 @@
 
             <dependency>
                 <groupId>org.gebish</groupId>
-                <artifactId>geb-core</artifactId>
+                <artifactId>geb-spock</artifactId>
                 <version>0.13.1</version>
             </dependency>
 

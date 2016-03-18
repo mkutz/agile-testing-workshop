@@ -20,7 +20,7 @@ class CustomerServiceSpec extends Specification {
     @Value('http://localhost:${local.server.port}')
     String serviceUrl
 
-    RestTemplate rest = new RestTemplate();
+    RestTemplate rest = new RestTemplate()
 
     def "GETing all customers should return an empty list"() {
         when:
@@ -35,7 +35,7 @@ class CustomerServiceSpec extends Specification {
 
     def "after POSTing a customer, getting its location should work"() {
         given:
-        CustomerRvo customerRvo = new CustomerRvo("Michael", "Kutz", "mail@assertagile.de")
+        CustomerRvo customerRvo = new CustomerRvo("Michael", "Kutz", "michael.kutz@rewe-digital.com")
 
         when:
         ResponseEntity<Void> response = rest.postForEntity("${serviceUrl}/api/customer/", customerRvo, Void)
@@ -44,6 +44,6 @@ class CustomerServiceSpec extends Specification {
         response.statusCode == HttpStatus.CREATED
 
         and:
-        rest.getForEntity(response.getHeaders().getLocation(), CustomerRvo).body == customerRvo
+        rest.getForEntity(response.headers.getLocation(), CustomerRvo).statusCode == HttpStatus.OK
     }
 }

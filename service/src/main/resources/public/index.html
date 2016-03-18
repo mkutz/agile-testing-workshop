@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="customer-service-ui">
+<head>
+    <title>Service Monitor Map</title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+
+<h1>Customer Service UI</h1>
+
+<customers></customers>
+
+<form novalidate="novalidate">
+    <div>
+        <label for="inputFirstName">First name:</label>
+        <div>
+            <input type="text" id="inputFirstName" ng-model="customer.firstName"/>
+        </div>
+    </div>
+    <div>
+        <label for="inputLastName">Last name:</label>
+        <div>
+            <input type="text" id="inputLastName" ng-model="customer.lastName"/>
+        </div>
+    </div>
+    <div>
+        <label for="inputEmail">Last name:</label>
+        <div>
+            <input type="email" id="inputEmail" ng-model="customer.email"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <!-- user-detail.html: -->
+            <a ng-click="cancel()" class="btn btn-small">cancel</a>
+            <a ng-click="updateUser()" class="btn btn-small btn-primary">update user</a>
+
+            <!-- user-creation.html: -->
+            <a ng-click="createNewUser()" class="btn btn-small btn-primary">create new user</a>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/ui-bootstrap-tpls-1.2.4.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

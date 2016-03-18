@@ -46,7 +46,7 @@ public class CustomerResource {
     }
 
     @RequestMapping(method = POST, path = "/api/customer/", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> getCustomer(@RequestBody CustomerRvo customerRvo) {
+    public ResponseEntity<Void> createCustomer(@RequestBody CustomerRvo customerRvo) {
         Customer customer = customerService.saveCustomer(Customer.fromRvo(customerRvo));
         return ResponseEntity.created(getCustomerLocation(customer)).body(null);
     }

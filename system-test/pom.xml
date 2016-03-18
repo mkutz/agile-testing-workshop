@@ -29,7 +29,7 @@
 
         <dependency>
             <groupId>org.gebish</groupId>
-            <artifactId>geb-core</artifactId>
+            <artifactId>geb-spock</artifactId>
         </dependency>
 
         <dependency>
