@@ -10,12 +10,13 @@ class GoogleSystemSpec extends GebReportingSpec {
 
     def "typing a single letter should make suggestions appear"() {
         given:
+        String inputText = "a"
         GoogleStartPage page = user.to(GoogleStartPage)
 
         when:
-        page.searchInput.text = "a"
+        user.searchFor(inputText)
 
         then:
-        page.searchSuggestions.displayed
+        user.doAllSuggestionsBeginWith(inputText)
     }
 }
