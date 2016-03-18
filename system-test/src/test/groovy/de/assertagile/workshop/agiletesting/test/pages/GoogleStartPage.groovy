@@ -1,6 +1,7 @@
 package de.assertagile.workshop.agiletesting.test.pages
 
 import geb.Page
+import geb.module.TextInput
 
 class GoogleStartPage extends Page {
 
@@ -9,6 +10,6 @@ class GoogleStartPage extends Page {
     static at = { $("#hplogo") }
 
     static content = {
-        // TODO
+        searchInput { $("#lst-ib").module(TextInput) }
     }
 }
