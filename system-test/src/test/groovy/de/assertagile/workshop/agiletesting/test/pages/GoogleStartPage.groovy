@@ -11,5 +11,6 @@ class GoogleStartPage extends Page {
 
     static content = {
         searchInput { $("#lst-ib").module(TextInput) }
+        searchSuggestions(wait: true) { $("ul.sbsb_b") }
     }
 }

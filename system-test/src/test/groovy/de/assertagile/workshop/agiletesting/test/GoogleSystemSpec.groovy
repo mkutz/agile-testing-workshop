@@ -8,7 +8,7 @@ class GoogleSystemSpec extends GebReportingSpec {
 
     final GoogleUserActor user = new GoogleUserActor(browser)
 
-    def "searching should work"() {
+    def "typing a single letter should make suggestions appear"() {
         given:
         GoogleStartPage page = user.to(GoogleStartPage)
 
@@ -16,6 +16,6 @@ class GoogleSystemSpec extends GebReportingSpec {
         page.searchInput.text = "a"
 
         then:
-        page.searchInput.text == "a"
+        page.searchSuggestions.displayed
     }
 }
