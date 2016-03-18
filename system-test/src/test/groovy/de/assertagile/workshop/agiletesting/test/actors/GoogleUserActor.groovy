@@ -4,6 +4,7 @@ import geb.Browser
 
 class GoogleUserActor {
 
+    @Delegate
     final Browser browser
 
     public GoogleUserActor(final Browser browser) {
